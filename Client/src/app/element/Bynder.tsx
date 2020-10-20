@@ -106,43 +106,39 @@ export const Bynder: FC = () => {
     <div>
       {available && (
         <div ref={elementRef} className={clsx(loading && styles.loadingForModal)}>
-          {!loading && (
+          {enabled && customElementConfig && (
             <>
-              {enabled && customElementConfig && (
-                <>
-                  <div className={styles.row}>
-                    <div className={styles.fullWidthCell}>
-                      <p>{elementTerms.enabledDescription}</p>
-                    </div>
+              <div className={styles.row}>
+                <div className={styles.fullWidthCell}>
+                  <p>{elementTerms.enabledDescription}</p>
+                </div>
+              </div>
+              <div className={styles.row}>
+                <div className={styles.fullWidthCell}>
+                  <button
+                    className={clsx(styles.submit, 'btn btn--primary btn--xs')}
+                    onClick={() => {
+                      setLoading(true);
+                      BynderCompactView.open(customElementConfig.bynderOptions);
+                    }}
+                  >
+                    {elementTerms.open}
+                  </button>
+                </div>
+              </div>
+              {assets !== undefined && (
+                <div className={styles.row}>
+                  <div className={clsx(styles.list, styles.fullWidthCell)}>
+                    {assets.map((asset) => (
+                      <AssetTile
+                        asset={asset}
+                        key={asset.id}
+                        showActions={enabled}
+                        onRemove={() => removeAsset(asset)}
+                      />
+                    ))}
                   </div>
-                  <div className={styles.row}>
-                    <div className={styles.fullWidthCell}>
-                      <button
-                        className={clsx(styles.submit, 'btn btn--primary btn--xs')}
-                        onClick={() => {
-                          setLoading(true);
-                          BynderCompactView.open(customElementConfig.bynderOptions);
-                        }}
-                      >
-                        {elementTerms.open}
-                      </button>
-                    </div>
-                  </div>
-                  {assets !== undefined && (
-                    <div className={styles.row}>
-                      <div className={clsx(styles.list, styles.fullWidthCell)}>
-                        {assets.map((asset) => (
-                          <AssetTile
-                            asset={asset}
-                            key={asset.id}
-                            showActions={enabled}
-                            onRemove={() => removeAsset(asset)}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  )}
-                </>
+                </div>
               )}
             </>
           )}
