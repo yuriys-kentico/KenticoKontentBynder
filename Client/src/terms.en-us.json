@@ -1,0 +1,13 @@
+{
+  "errors": {
+    "genericError": "A generic error has occurred.",
+    "genericStack": "No error information."
+  },
+  "element": {
+    "title": "Bynder",
+    "open": "Select assets",
+    "download": "Download",
+    "enabledDescription": "Choose assets from Bynder.",
+    "disabledDescription": "This element has no functionality in this context."
+  }
+}
