@@ -2,6 +2,8 @@
 
 Sample custom element that uses the [Bynder Compact View UI Component](https://developer-docs.bynder.com/ui-components#compact-view) to list Bynder assets in a Bynder account.
 
+![KontentBynder](https://user-images.githubusercontent.com/34716163/96636319-21e1e900-12eb-11eb-9962-50d1f18f82e0.gif)
+
 ## Setup
 
 1. Deploy the custom element code in `Client/` to a secure public host.
