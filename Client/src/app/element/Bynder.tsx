@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
+import React, { FC, useCallback, useEffect, useState } from 'react';
 
 import { createStyles, makeStyles } from '@material-ui/styles';
 
