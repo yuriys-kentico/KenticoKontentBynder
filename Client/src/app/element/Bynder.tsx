@@ -36,8 +36,6 @@ export const Bynder: FC = () => {
 
   const [assets, setAssets] = useState<IAsset[]>();
 
-  const elementRef = useRef<HTMLDivElement>(null);
-
   const onSuccess = useCallback((assets: IAsset[], additionalInfo?: AdditionalInfo) => {
     setAssets(assets);
     setLoading(false);
@@ -79,10 +77,8 @@ export const Bynder: FC = () => {
   }, [loaded]);
 
   useEffect(() => {
-    if (available && elementRef.current) {
-      let totalHeight = elementRef.current.scrollHeight;
-
-      CustomElement.setHeight(totalHeight);
+    if (available) {
+      CustomElement.setHeight(document.documentElement.scrollHeight);
     }
   });
 
@@ -105,7 +101,7 @@ export const Bynder: FC = () => {
   return (
     <div>
       {available && (
-        <div ref={elementRef} className={clsx(loading && styles.loadingForModal)}>
+        <div className={clsx(loading && styles.loadingForModal)}>
           {enabled && customElementConfig && (
             <>
               <div className={styles.row}>
